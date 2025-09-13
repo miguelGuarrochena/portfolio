@@ -12,6 +12,7 @@ import {
   useMantineTheme,
   Drawer,
   Button as MantineButton,
+  Box,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { IconSun, IconMoon, IconWorld, IconDownload, IconMail } from '@tabler/icons-react';
@@ -61,9 +62,7 @@ export function Header({ opened, toggle, close }: HeaderProps) {
         message: t.contact.notificationMessage || 'Email copied! Feel free to contact me.',
         color: 'teal',
       });
-      // Cambiar el estado para mostrar el texto y color de "copiado"
       setEmailCopied(true);
-      // Restaurar después de 2 segundos
       setTimeout(() => setEmailCopied(false), 2000);
       close();
     } catch (err) {
@@ -123,57 +122,75 @@ export function Header({ opened, toggle, close }: HeaderProps) {
           MG
         </Text>
 
-        <Group visibleFrom="md" gap="xs" wrap="nowrap">
-          {renderNavItems()}
-          <MantineButton.Group>
-            <MantineButton
-              variant={locale === 'en' ? 'filled' : 'outline'}
-              size="xs"
-              onClick={() => handleLanguageChange('en')}
-              style={{ borderTopRightRadius: 0, borderBottomRightRadius: 0 }}
-            >
-              🇬🇧 EN
-            </MantineButton>
-            <MantineButton
-              variant={locale === 'es' ? 'filled' : 'outline'}
-              size="xs"
-              onClick={() => handleLanguageChange('es')}
-              style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0 }}
-            >
-              🇪🇸 ES
-            </MantineButton>
-          </MantineButton.Group>
+        {/* Desktop Navigation */}
+        <Box
+          style={{
+            '@media (max-width: 768px)': {
+              display: 'none',
+            },
+          }}
+        >
+          <Group gap="xs" wrap="nowrap">
+            {renderNavItems()}
+            <MantineButton.Group>
+              <MantineButton
+                variant={locale === 'en' ? 'filled' : 'outline'}
+                size="xs"
+                onClick={() => handleLanguageChange('en')}
+                style={{ borderTopRightRadius: 0, borderBottomRightRadius: 0 }}
+              >
+                🇬🇧 EN
+              </MantineButton>
+              <MantineButton
+                variant={locale === 'es' ? 'filled' : 'outline'}
+                size="xs"
+                onClick={() => handleLanguageChange('es')}
+                style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0 }}
+              >
+                🇪🇸 ES
+              </MantineButton>
+            </MantineButton.Group>
 
-          <ActionIcon
-            variant="default"
-            size="lg"
-            aria-label="Toggle color scheme"
-            onClick={toggleColorScheme}
-          >
-            {colorScheme === 'light' ? (
-              <IconMoon size={20} />
-            ) : (
-              <IconSun size={20} />
-            )}
-          </ActionIcon>
-        </Group>
+            <ActionIcon
+              variant="default"
+              size="lg"
+              aria-label="Toggle color scheme"
+              onClick={toggleColorScheme}
+            >
+              {colorScheme === 'light' ? (
+                <IconMoon size={20} />
+              ) : (
+                <IconSun size={20} />
+              )}
+            </ActionIcon>
+          </Group>
+        </Box>
 
-        <Group hiddenFrom="md">
-          <ActionIcon
-            variant="default"
-            size="lg"
-            aria-label="Toggle color scheme"
-            onClick={toggleColorScheme}
-            mr="sm"
-          >
-            {colorScheme === 'light' ? (
-              <IconMoon size={20} />
-            ) : (
-              <IconSun size={20} />
-            )}
-          </ActionIcon>
-          <Burger opened={opened} onClick={toggle} size="sm" />
-        </Group>
+        {/* Mobile Navigation */}
+        <Box
+          style={{
+            '@media (min-width: 769px)': {
+              display: 'none',
+            },
+          }}
+        >
+          <Group>
+            <ActionIcon
+              variant="default"
+              size="lg"
+              aria-label="Toggle color scheme"
+              onClick={toggleColorScheme}
+              mr="sm"
+            >
+              {colorScheme === 'light' ? (
+                <IconMoon size={20} />
+              ) : (
+                <IconSun size={20} />
+              )}
+            </ActionIcon>
+            <Burger opened={opened} onClick={toggle} size="sm" />
+          </Group>
+        </Box>
       </Group>
 
       <Drawer

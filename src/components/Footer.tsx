@@ -3,9 +3,23 @@
 import { Container, Text, Group, ActionIcon, Divider } from '@mantine/core';
 import { IconBrandGithub, IconBrandLinkedin, IconMail } from '@tabler/icons-react';
 import { useTranslation } from '@/hooks/useTranslation';
+import { notifications } from '@mantine/notifications';
 
 export function Footer() {
   const { t } = useTranslation();
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText('mikeguarrochena@gmail.com');
+      notifications.show({
+        title: t.contact.title || 'Contact',
+        message: t.contact.emailCopied || 'Email copied! Feel free to contact me.',
+        color: 'teal',
+      });
+    } catch (err) {
+      console.error('Error copying email:', err);
+    }
+  };
 
   return (
     <footer>
@@ -29,9 +43,8 @@ export function Footer() {
             <ActionIcon
               size="lg"
               variant="subtle"
-              component="a"
-              href="mailto:mikeguarrochena@gmail.com"
-              aria-label="Email"
+              onClick={handleCopyEmail}
+              aria-label="Copy email"
             >
               <IconMail size={20} />
             </ActionIcon>
@@ -49,6 +62,7 @@ export function Footer() {
             </ActionIcon>
           </Group>
         </Group>
+ 
       </Container>
     </footer>
   );

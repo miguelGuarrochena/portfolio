@@ -3,10 +3,15 @@ import '@mantine/notifications/styles.css';
 import './globals.css';
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
-import { Inter } from 'next/font/google';
+import { Space_Grotesk } from 'next/font/google';
 import { ThemeProvider } from '@/components/ThemeProvider';
 
-const inter = Inter({ subsets: ['latin'] });
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-space-grotesk',
+});
 
 export const metadata = {
   title: 'Miguel Guarrochena - Frontend Developer',
@@ -19,11 +24,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={spaceGrotesk.variable}>
       <head>
         <ColorSchemeScript />
       </head>
-      <body className={inter.className}>
+      <body className={spaceGrotesk.className}>
         <ThemeProvider>
           <MantineProvider>
             <Notifications />

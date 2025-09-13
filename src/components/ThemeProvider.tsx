@@ -18,7 +18,16 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     setMounted(true);
-  }, []);
+    
+    // Add class to body when color scheme changes
+    if (colorScheme === 'dark') {
+      document.body.classList.add('mantine-dark');
+      document.body.classList.remove('mantine-light');
+    } else {
+      document.body.classList.add('mantine-light');
+      document.body.classList.remove('mantine-dark');
+    }
+  }, [colorScheme]);
 
   if (!mounted) {
     return (
@@ -29,7 +38,11 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <MantineProvider theme={theme} defaultColorScheme={colorScheme}>
+    <MantineProvider 
+      theme={theme} 
+      defaultColorScheme={colorScheme}
+      forceColorScheme={colorScheme}
+    >
       {children}
     </MantineProvider>
   );

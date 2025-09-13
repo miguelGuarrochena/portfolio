@@ -4,6 +4,8 @@ export const en = {
     skills: 'Skills',
     experience: 'Experience',
     contact: 'Contact',
+    menu: 'Menu',
+    copied: 'Copied!',
   },
   hero: {
     name: 'Miguel Guarrochena',
@@ -75,11 +77,15 @@ export const en = {
     linkedin: 'LinkedIn',
     github: 'GitHub',
     copyEmail: 'Copy email to clipboard',
-    emailCopied: 'Email copied to clipboard!',
+    emailCopied: 'Copied!',
+    notificationMessage: 'Email copied to clipboard. Feel free to reach out to me!',
   },
   cv: {
     title: 'Download Resume',
-    download: 'Download Resume',
+    download: 'Download CV',
+  },
+  settings: {
+    language: 'Language',
   },
   footer: {
     rights: 'All rights reserved.',

@@ -4,10 +4,23 @@ import { Container, Title, Text, Group, Avatar, Stack, ActionIcon } from '@manti
 import { motion } from 'framer-motion';
 import { useTranslation } from '@/hooks/useTranslation';
 import { IconBrandGithub, IconBrandLinkedin, IconMail } from '@tabler/icons-react';
-
+import { notifications } from '@mantine/notifications';
 
 export function HeroSection() {
   const { t } = useTranslation();
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText('mikeguarrochena@gmail.com');
+      notifications.show({
+        title: t.contact.title || 'Contact',
+        message: t.contact.emailCopied || 'Email copied! Feel free to contact me.',
+        color: 'teal',
+      });
+    } catch (err) {
+      console.error('Error copying email:', err);
+    }
+  };
 
   return (
     <Container size="lg" py={80}>
@@ -61,9 +74,8 @@ export function HeroSection() {
                 <ActionIcon
                   size="lg"
                   variant="subtle"
-                  component="a"
-                  href="mailto:mikeguarrochena@gmail.com"
-                  aria-label="Email"
+                  onClick={handleCopyEmail}
+                  aria-label="Copy email"
                 >
                   <IconMail size={24} />
                 </ActionIcon>

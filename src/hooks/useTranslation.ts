@@ -13,7 +13,16 @@ interface LanguageState {
 const useLanguageStore = create<LanguageState>()(
   persist(
     (set) => ({
-      locale: 'en',
+      locale: (() => {
+        if (typeof window !== 'undefined') {
+          const saved = localStorage.getItem('language-storage');
+          if (!saved) {
+            const browserLang = navigator.language.split('-')[0];
+            return ['en', 'es'].includes(browserLang) ? browserLang as Locale : 'en';
+          }
+        }
+        return 'en';
+      })(),
       setLocale: (locale: Locale) => set({ locale }),
     }),
     {

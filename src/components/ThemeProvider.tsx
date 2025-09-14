@@ -42,6 +42,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   if (!mounted) {
     return (
       <MantineProvider theme={theme} defaultColorScheme="light">
+        <Notifications />
         {children}
       </MantineProvider>
     );

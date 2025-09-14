@@ -14,7 +14,9 @@ export const es = {
   },
   about: {
     title: 'Acerca de Mí',
-    description: 'Desarrollador Frontend con experiencia en la construcción de aplicaciones web responsivas y de alto rendimiento utilizando React, Next.js, TypeScript y frameworks CSS modernos. Colaboro con equipos multifuncionales para entregar características escalables, optimizar el rendimiento a través de code splitting y caching, y desarrollar compatibilidad entre navegadores. Contribuyo a mejorar los flujos de trabajo de desarrollo implementando componentes reutilizables, mejores prácticas de control de versiones y metodologías ágiles.',
+    description: `Desarrollador Frontend apasionado por construir aplicaciones web modernas, escalables y de alto rendimiento con React, Next.js, TypeScript y frameworks CSS de vanguardia. Me especializo en crear experiencias de usuario atractivas y responsivas, y en impulsar la optimización del rendimiento a través de mejores prácticas como code splitting, caching y compatibilidad entre navegadores.
+
+Con un sólido historial de colaboración en equipos, aporto valor entregando características que escalan, mejorando la eficiencia del desarrollo a través de bibliotecas de componentes reutilizables, y fomentando flujos de trabajo ágiles y de alta calidad. Mi objetivo es conectar diseño y tecnología, convirtiendo ideas en productos que deleitan a los usuarios y impulsan el crecimiento del negocio.`,
   },
   skills: {
     title: 'Habilidades',

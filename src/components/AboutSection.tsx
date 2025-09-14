@@ -20,9 +20,11 @@ export function AboutSection() {
           {t.about.title}
         </Title>
             <Paper p="xl" radius="md" withBorder h="100%">
-              <Text size="lg" lh={1.6}>
-                {t.about.description}
-              </Text>
+              {t.about.description.split('\n').map((paragraph, index) => (
+                <Text key={index} size="lg" lh={1.6} mb={index < t.about.description.split('\n').length - 1 ? 'md' : 0}>
+                  {paragraph}
+                </Text>
+              ))}
             </Paper>
        
       </motion.div>

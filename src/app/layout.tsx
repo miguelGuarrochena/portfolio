@@ -16,6 +16,9 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata = {
   title: 'Miguel Guarrochena - Frontend Developer',
   description: 'Frontend Developer with experience in building responsive, high-performance web applications using React, Next.js, TypeScript, and modern CSS frameworks.',
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
@@ -27,6 +30,7 @@ export default function RootLayout({
     <html lang="en" className={spaceGrotesk.variable}>
       <head>
         <ColorSchemeScript />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </head>
       <body className={spaceGrotesk.className}>
         <ThemeProvider>

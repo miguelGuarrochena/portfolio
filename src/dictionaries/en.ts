@@ -14,7 +14,9 @@ export const en = {
   },
   about: {
     title: 'About Me',
-    description: 'Frontend Developer with experience in building responsive, high-performance web applications using React, Next.js, TypeScript, and modern CSS frameworks. I collaborate with cross-functional teams to deliver scalable features, optimize performance through code splitting and caching, and develop cross-browser compatibility. I contribute to improving development workflows by implementing reusable components, version control best practices, and agile methodologies.',
+    description: `Frontend Developer passionate about building modern, scalable, and high-performing web applications with React, Next.js, TypeScript, and cutting-edge CSS frameworks. I specialize in creating engaging, responsive user experiences and driving performance optimization through best practices like code splitting, caching, and cross-browser compatibility.
+
+     With a strong track record of collaborating across teams, I bring value by delivering features that scale, improving development efficiency through reusable component libraries, and fostering agile, high-quality workflows. My goal is to bridge design and technology, turning ideas into products that delight users and drive business growth.`,
   },
   skills: {
     title: 'Skills',

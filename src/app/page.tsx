@@ -1,6 +1,6 @@
 'use client';
 
-import { AppShell, Drawer, Stack, Button, Select } from '@mantine/core';
+import { AppShell, Button, Select } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { IconDownload, IconMail, IconWorld } from '@tabler/icons-react';
 import { useTranslation } from '@/hooks/useTranslation';
@@ -39,13 +39,20 @@ export default function HomePage() {
       await navigator.clipboard.writeText('mikeguarrochena@gmail.com');
       notifications.show({
         title: t.contact.title || 'Contact',
-        message: t.contact.emailCopied || 'Email copied! Feel free to contact me.',
+        message: t.contact.notificationMessage || 'Email copied! Feel free to contact me',
         color: 'teal',
+        autoClose: 5000,
       });
+      setEmailCopied(true);
       close();
       setTimeout(() => setEmailCopied(false), 2000);
     } catch (err) {
       console.error('Error copying email:', err);
+      notifications.show({
+        title: 'Error',
+        message: 'Failed to copy email. Please try again or manually copy mikeguarrochena@gmail.com',
+        color: 'red',
+      });
     }
   };
 
@@ -72,7 +79,18 @@ export default function HomePage() {
         header={{ height: 60 }}
         padding="0"
       >
-        <Header opened={opened} toggle={toggle} close={close} />
+        <Header 
+          opened={opened} 
+          toggle={toggle} 
+          close={close}
+          onDownloadCV={handleDownloadCV}
+          onCopyEmail={handleCopyEmail}
+          onLanguageChange={handleLanguageChange}
+          emailCopied={emailCopied}
+          locale={locale}
+          navItems={navItems}
+          onScrollToSection={scrollToSection}
+        />
         <AppShell.Main>
           <HeroSection />
           <AboutSection />
@@ -81,62 +99,6 @@ export default function HomePage() {
           <Footer />
         </AppShell.Main>
       </AppShell>
-
-      <Drawer
-        opened={opened}
-        onClose={close}
-        position="right"
-        padding="md"
-        size="280px"
-        zIndex={1000}
-      >
-        <Stack gap="md">
-          <Stack gap="sm">
-            {navItems.map((item) => (
-              <Button
-                key={item.id}
-                variant="subtle"
-                size="md"
-                onClick={() => scrollToSection(item.id)}
-                fullWidth
-              >
-                {item.label}
-              </Button>
-            ))}
-          </Stack>
-          <Button
-            variant="outline"
-            size="md"
-            leftSection={<IconDownload size={16} />}
-            onClick={handleDownloadCV}
-            fullWidth
-          >
-            {t.cv.title || 'Download CV'}
-          </Button>
-          <Button
-            variant={emailCopied ? 'light' : 'filled'}
-            color={emailCopied ? 'teal' : undefined}
-            size="md"
-            leftSection={<IconMail size={16} />}
-            onClick={handleCopyEmail}
-            fullWidth
-          >
-            {emailCopied ? (t.nav.copied || 'Copied!') : (t.nav.contact || 'Contact')}
-          </Button>
-          <Select
-            label={t.settings?.language || 'Language'}
-            value={locale}
-            onChange={handleLanguageChange}
-            data={[
-              { value: 'en', label: 'English' },
-              { value: 'es', label: 'Español' },
-            ]}
-            leftSection={<IconWorld size={16} />}
-            style={{ width: '100%' }}
-            mt="md"
-          />
-        </Stack>
-      </Drawer>
     </>
   );
 }

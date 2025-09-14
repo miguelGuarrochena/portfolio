@@ -12,7 +12,6 @@ import {
   useMantineTheme,
   Drawer,
   Button as MantineButton,
-  Box,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { IconSun, IconMoon, IconWorld, IconDownload, IconMail } from '@tabler/icons-react';
@@ -30,58 +29,40 @@ interface HeaderProps {
   opened: boolean;
   toggle: () => void;
   close: () => void;
+  onDownloadCV: () => void;
+  onCopyEmail: () => void;
+  onLanguageChange: (value: string | null) => void;
+  onScrollToSection: (sectionId: string) => void;
+  emailCopied: boolean;
+  locale: string;
+  navItems: NavItem[];
 }
 
-export function Header({ opened, toggle, close }: HeaderProps) {
+export function Header({ 
+  opened, 
+  toggle, 
+  close, 
+  onDownloadCV, 
+  onCopyEmail, 
+  onLanguageChange, 
+  onScrollToSection, 
+  emailCopied, 
+  locale, 
+  navItems 
+}: HeaderProps) {
   const { colorScheme, toggleColorScheme } = useThemeStore();
-  const { t, locale, setLocale } = useTranslation();
+  const { t } = useTranslation();
   const theme = useMantineTheme();
-  const [emailCopied, setEmailCopied] = useState(false);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      close();
-    }
-  };
-
-  const handleDownloadCV = () => {
-    const link = document.createElement('a');
-    link.href = '/cv/Miguel_Guarrochena_Resume.pdf';
-    link.download = 'Miguel_Guarrochena_Resume.pdf';
-    link.click();
+  const handleCopyEmail = () => {
+    onCopyEmail();
     close();
   };
 
-  const handleCopyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText('mikeguarrochena@gmail.com');
-      notifications.show({
-        title: t.contact.title || 'Contact',
-        message: t.contact.notificationMessage || 'Email copied! Feel free to contact me.',
-        color: 'teal',
-      });
-      setEmailCopied(true);
-      setTimeout(() => setEmailCopied(false), 2000);
-      close();
-    } catch (err) {
-      console.error('Error copying email:', err);
-    }
+  const handleLanguageChange = (lang: string) => {
+    onLanguageChange(lang);
+    close();
   };
-
-  const handleLanguageChange = (value: string | null) => {
-    if (value && value !== locale) {
-      setLocale(value as 'en' | 'es');
-      close();
-    }
-  };
-
-  const navItems: NavItem[] = [
-    { id: 'about', label: t.nav.about },
-    { id: 'skills', label: t.nav.skills },
-    { id: 'experience', label: t.nav.experience },
-  ];
 
   const renderNavItems = () => (
     <Group gap="sm" wrap="nowrap">
@@ -90,7 +71,7 @@ export function Header({ opened, toggle, close }: HeaderProps) {
           key={item.id}
           variant="subtle"
           size="sm"
-          onClick={() => scrollToSection(item.id)}
+          onClick={() => onScrollToSection(item.id)}
         >
           {item.label}
         </Button>
@@ -99,7 +80,7 @@ export function Header({ opened, toggle, close }: HeaderProps) {
         variant="outline"
         size="sm"
         leftSection={<IconDownload size={16} />}
-        onClick={handleDownloadCV}
+        onClick={onDownloadCV}
       >
         {t.cv.title || 'Download CV'}
       </Button>
@@ -122,75 +103,57 @@ export function Header({ opened, toggle, close }: HeaderProps) {
           MG
         </Text>
 
-        {/* Desktop Navigation */}
-        <Box
-          style={{
-            '@media (max-width: 768px)': {
-              display: 'none',
-            },
-          }}
-        >
-          <Group gap="xs" wrap="nowrap">
-            {renderNavItems()}
-            <MantineButton.Group>
-              <MantineButton
-                variant={locale === 'en' ? 'filled' : 'outline'}
-                size="xs"
-                onClick={() => handleLanguageChange('en')}
-                style={{ borderTopRightRadius: 0, borderBottomRightRadius: 0 }}
-              >
-                🇬🇧 EN
-              </MantineButton>
-              <MantineButton
-                variant={locale === 'es' ? 'filled' : 'outline'}
-                size="xs"
-                onClick={() => handleLanguageChange('es')}
-                style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0 }}
-              >
-                🇪🇸 ES
-              </MantineButton>
-            </MantineButton.Group>
-
-            <ActionIcon
-              variant="default"
-              size="lg"
-              aria-label="Toggle color scheme"
-              onClick={toggleColorScheme}
+        <Group visibleFrom="md" gap="xs" wrap="nowrap">
+          {renderNavItems()}
+          <MantineButton.Group>
+            <MantineButton
+              variant={locale === 'en' ? 'filled' : 'outline'}
+              size="xs"
+              onClick={() => handleLanguageChange('en')}
+              style={{ borderTopRightRadius: 0, borderBottomRightRadius: 0 }}
             >
-              {colorScheme === 'light' ? (
-                <IconMoon size={20} />
-              ) : (
-                <IconSun size={20} />
-              )}
-            </ActionIcon>
-          </Group>
-        </Box>
-
-        {/* Mobile Navigation */}
-        <Box
-          style={{
-            '@media (min-width: 769px)': {
-              display: 'none',
-            },
-          }}
-        >
-          <Group>
-            <ActionIcon
-              variant="default"
-              size="lg"
-              aria-label="Toggle color scheme"
-              onClick={toggleColorScheme}
-              mr="sm"
+              🇬🇧 EN
+            </MantineButton>
+            <MantineButton
+              variant={locale === 'es' ? 'filled' : 'outline'}
+              size="xs"
+              onClick={() => handleLanguageChange('es')}
+              style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0 }}
             >
-              {colorScheme === 'light' ? (
-                <IconMoon size={20} />
-              ) : (
-                <IconSun size={20} />
-              )}
-            </ActionIcon>
-            <Burger opened={opened} onClick={toggle} size="sm" />
-          </Group>
-        </Box>
+              🇪🇸 ES
+            </MantineButton>
+          </MantineButton.Group>
+
+          <ActionIcon
+            variant="default"
+            size="lg"
+            aria-label="Toggle color scheme"
+            onClick={toggleColorScheme}
+          >
+            {colorScheme === 'light' ? (
+              <IconMoon size={20} />
+            ) : (
+              <IconSun size={20} />
+            )}
+          </ActionIcon>
+        </Group>
+
+        <Group hiddenFrom="md">
+          <ActionIcon
+            variant="default"
+            size="lg"
+            aria-label="Toggle color scheme"
+            onClick={toggleColorScheme}
+            mr="sm"
+          >
+            {colorScheme === 'light' ? (
+              <IconMoon size={20} />
+            ) : (
+              <IconSun size={20} />
+            )}
+          </ActionIcon>
+          <Burger opened={opened} onClick={toggle} size="sm" />
+        </Group>
       </Group>
 
       <Drawer
@@ -208,7 +171,7 @@ export function Header({ opened, toggle, close }: HeaderProps) {
                 key={item.id}
                 variant="subtle"
                 size="md"
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => onScrollToSection(item.id)}
                 fullWidth
               >
                 {item.label}
@@ -219,7 +182,7 @@ export function Header({ opened, toggle, close }: HeaderProps) {
             variant="outline"
             size="md"
             leftSection={<IconDownload size={16} />}
-            onClick={handleDownloadCV}
+            onClick={onDownloadCV}
             fullWidth
           >
             {t.cv.title || 'Download CV'}
@@ -229,50 +192,39 @@ export function Header({ opened, toggle, close }: HeaderProps) {
             color={emailCopied ? 'teal' : 'green.9'}
             size="md"
             leftSection={<IconMail size={16} />}
-            onClick={() => {
-              handleCopyEmail();
-              close();
-            }}
+            onClick={handleCopyEmail}
             fullWidth
           >
-            {emailCopied ? (t.nav.copied || 'Copied!') : (t.nav.contact || 'Contact')}
+            {emailCopied ? (t.contact.emailCopied || 'Email copied!') : (t.nav.contact || 'Contact')}
           </Button>
-          <MantineButton.Group style={{ width: '100%', justifyContent: 'center', marginTop: '16px' }}>
-            <MantineButton
-              variant={locale === 'en' ? 'filled' : 'outline'}
-              size="sm"
-              onClick={() => handleLanguageChange('en')}
-              style={{ 
-                borderTopRightRadius: 0, 
-                borderBottomRightRadius: 0,
-                flex: 1,
-                maxWidth: '120px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px'
-              }}
-            >
-              🇬🇧 EN
-            </MantineButton>
-            <MantineButton
-              variant={locale === 'es' ? 'filled' : 'outline'}
-              size="sm"
-              onClick={() => handleLanguageChange('es')}
-              style={{ 
-                borderTopLeftRadius: 0, 
-                borderBottomLeftRadius: 0,
-                flex: 1,
-                maxWidth: '120px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px'
-              }}
-            >
-              🇪🇸 ES
-            </MantineButton>
-          </MantineButton.Group>
+          <Group justify="center" mt="md">
+            <MantineButton.Group>
+              <MantineButton
+                variant={locale === 'en' ? 'filled' : 'outline'}
+                size="sm"
+                onClick={() => handleLanguageChange('en')}
+                style={{ 
+                  borderTopRightRadius: 0, 
+                  borderBottomRightRadius: 0,
+                  padding: '0 12px',
+                }}
+              >
+                🇬🇧 EN
+              </MantineButton>
+              <MantineButton
+                variant={locale === 'es' ? 'filled' : 'outline'}
+                size="sm"
+                onClick={() => handleLanguageChange('es')}
+                style={{ 
+                  borderTopLeftRadius: 0, 
+                  borderBottomLeftRadius: 0,
+                  padding: '0 12px',
+                }}
+              >
+                🇪🇸 ES
+              </MantineButton>
+            </MantineButton.Group>
+          </Group>
         </Stack>
       </Drawer>
     </AppShell.Header>

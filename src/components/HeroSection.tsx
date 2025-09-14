@@ -14,7 +14,7 @@ export function HeroSection() {
       await navigator.clipboard.writeText('mikeguarrochena@gmail.com');
       notifications.show({
         title: t.contact.title || 'Contact',
-        message: t.contact.emailCopied || 'Email copied! Feel free to contact me.',
+        message: t.contact.notificationMessage || 'Email copied! Feel free to contact me.',
         color: 'teal',
       });
     } catch (err) {

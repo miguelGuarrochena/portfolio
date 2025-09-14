@@ -3,12 +3,22 @@
 import { MantineProvider, createTheme } from '@mantine/core';
 import { useThemeStore } from '@/store/themeStore';
 import { useEffect, useState } from 'react';
+import { Notifications } from '@mantine/notifications';
 
 const theme = createTheme({
   primaryColor: 'blue',
   fontFamily: 'Inter, sans-serif',
   headings: {
     fontFamily: 'Inter, sans-serif',
+  },
+  components: {
+    Drawer: {
+      styles: (theme: { colorScheme: string; colors: { dark: any[]; }; white: any; }) => ({
+        content: {
+          backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
+        },
+      }),
+    },
   },
 });
 
@@ -43,6 +53,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       defaultColorScheme={colorScheme}
       forceColorScheme={colorScheme}
     >
+      <Notifications />
       {children}
     </MantineProvider>
   );

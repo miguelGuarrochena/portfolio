@@ -5,9 +5,15 @@ import { motion } from 'framer-motion';
 import { useTranslation } from '@/hooks/useTranslation';
 import { IconBrandGithub, IconBrandLinkedin, IconMail } from '@tabler/icons-react';
 import { notifications } from '@mantine/notifications';
+import { useState } from 'react';
 
 export function HeroSection() {
   const { t } = useTranslation();
+  const [imageSrc, setImageSrc] = useState('images/miguel.png');
+
+  const handleImageClick = () => {
+    setImageSrc((prev) => prev === 'images/miguel.png' ? 'images/miguel_sonrisa.png' : 'images/miguel.png');
+  };
 
   const handleCopyEmail = async () => {
     try {
@@ -38,11 +44,13 @@ export function HeroSection() {
             <Avatar
               size={200}
               radius="md"
-              src="images/miguel.png"
+              src={imageSrc}
               alt="Miguel Guarrochena"
+              onClick={handleImageClick}
               style={{
-                border: '4px solid var(--mantine-color-blue-6)',
+                border: `4px solid ${imageSrc === 'images/miguel.png' ? 'var(--mantine-color-blue-6)' : 'var(--mantine-color-green-6)'}`,
                 filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1))',
+                cursor: 'pointer',
               }}
             />
           </motion.div>

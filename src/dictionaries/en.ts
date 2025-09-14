@@ -41,7 +41,7 @@ export const en = {
       description: 'Develop and maintain responsive, high-performance web and mobile interfaces using React, Next.js, TypeScript, and modern CSS frameworks. Collaborate with cross-functional teams to deliver scalable features, optimize performance through code splitting and caching, and develop cross-browser compatibility. Contribute to improving development workflows by implementing reusable components, version control best practices, and agile methodologies.',
     },
     solehann: {
-      company: 'Solehann',
+      company: 'Selehann',
       role: 'Junior Front End Developer',
       period: 'April 2022 - December 2022',
       description: 'Worked on building and maintaining user interfaces with React and TypeScript, focusing on responsive and accessible design. Support the migration of legacy code to modern frameworks, collaborating in testing and bug fixing and contributing to the development of internal tools to streamline workflows. Gained hands-on experience with agile methodologies and project management tools such as Jira and GitHub Projects.',

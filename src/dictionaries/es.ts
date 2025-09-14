@@ -41,7 +41,7 @@ Con un sólido historial de colaboración en equipos, aporto valor entregando ca
       description: 'Desarrollo y mantengo interfaces web y móviles responsivas y de alto rendimiento utilizando React, Next.js, TypeScript y frameworks CSS modernos. Colaboro con equipos multifuncionales para entregar características escalables, optimizar el rendimiento a través de code splitting y caching, y desarrollar compatibilidad entre navegadores. Contribuyo a mejorar los flujos de trabajo de desarrollo implementando componentes reutilizables, mejores prácticas de control de versiones y metodologías ágiles.',
     },
     solehann: {
-      company: 'Solehann',
+      company: 'Selehann',
       role: 'Desarrollador Front End Junior',
       period: 'Abril 2022 - Diciembre 2022',
       description: 'Trabajé en la construcción y mantenimiento de interfaces de usuario con React y TypeScript, enfocándome en diseño responsivo y accesible. Apoyo la migración de código legacy a frameworks modernos, colaborando en testing y corrección de bugs y contribuyendo al desarrollo de herramientas internas para optimizar flujos de trabajo. Obtuve experiencia práctica con metodologías ágiles y herramientas de gestión de proyectos como Jira y GitHub Projects.',

@@ -34,6 +34,18 @@ Con un sólido historial de colaboración en equipos, aporto valor entregando ca
   experience: {
     title: 'Experiencia',
     present: 'Presente',
+    freelance: {
+      company: 'Freelance',
+      role: 'Desarrollador Front End Mid-level',
+      period: 'Noviembre 2025 - Presente',
+      description: 'Entrego soluciones front-end de alta calidad para diversos clientes, equilibrando código limpio y experiencia de usuario. Me enfoco en mejorar los tiempos de carga, accesibilidad y mantenibilidad mediante el uso inteligente de frameworks y optimización de rendimiento. Aplico un enfoque basado en datos y habilidades de resolución de problemas para optimizar tanto la experiencia del usuario como las operaciones internas. Desarrollo y mantengo interfaces de usuario para plataformas web y móviles utilizando frameworks modernos.',
+    },
+    bellolandiaNew: {
+      company: 'Bellolandia Estudio',
+      role: 'Colaboración Técnica y de Pipeline',
+      period: 'Noviembre 2025 - Presente',
+      description: 'Colaboro con equipos de producción de animación para mejorar herramientas internas y automatizar flujos de trabajo. Construyo e integro herramientas para optimizar los pipelines de producción, mejorando la eficiencia y reduciendo tareas manuales. Gestiono flujos de trabajo de software, control de versiones y procesos de implementación para garantizar una ejecución fluida de los proyectos.',
+    },
     mechanized: {
       company: 'Mechanized',
       role: 'Desarrollador Front End Mid-level',

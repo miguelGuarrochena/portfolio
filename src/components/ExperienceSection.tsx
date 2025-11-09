@@ -9,6 +9,14 @@ export function ExperienceSection() {
 
   const experiences = [
     {
+      key: 'freelance',
+      data: t.experience.freelance,
+    },
+    {
+      key: 'bellolandiaNew',
+      data: t.experience.bellolandiaNew,
+    },
+    {
       key: 'mechanized',
       data: t.experience.mechanized,
     },

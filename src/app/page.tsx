@@ -28,7 +28,7 @@ export default function HomePage() {
 
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/cv/Miguel_Guarrochena_Resume.pdf';
+    link.href = '/cv/miguelGuarrochena_Resume.pdf';
     link.download = 'Miguel_Guarrochena_Resume.pdf';
     link.click();
     close();

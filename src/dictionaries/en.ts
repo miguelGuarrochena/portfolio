@@ -34,6 +34,18 @@ export const en = {
   experience: {
     title: 'Experience',
     present: 'Present',
+    freelance: {
+      company: 'Freelance',
+      role: 'Mid-level Front End Developer',
+      period: 'November 2025 - Present',
+      description: 'Deliver high-quality front-end solutions for diverse clients, balancing clean code and user experience. Focus on improving load times, accessibility, and maintainability through smart use of frameworks and performance optimization. Apply a data-driven mindset and problem-solving skills to optimize both user experience and internal operations. Develop and maintain user interfaces for web and mobile platforms using modern frameworks.',
+    },
+    bellolandiaNew: {
+      company: 'Bellolandia Estudio',
+      role: 'Tech & Pipeline Collaboration',
+      period: 'November 2025 - Present',
+      description: 'Collaborate with animation production teams to improve internal tools and automate workflows. Build and integrate tools to streamline production pipelines, enhancing efficiency and reducing manual tasks. Manage software workflow, version control, and deployment processes to ensure smooth project execution.',
+    },
     mechanized: {
       company: 'Mechanized',
       role: 'Mid-level Front End Developer',

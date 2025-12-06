@@ -1,13 +1,11 @@
-'use client';
+import { ColorSchemeScript } from '@mantine/core';
+import { Space_Grotesk } from 'next/font/google';
+
+import { ThemeProvider } from '@/components/ThemeProvider';
 
 import '@mantine/core/styles.css';
 import '@mantine/notifications/styles.css';
 import './globals.css';
-import { ColorSchemeScript } from '@mantine/core';
-import { Space_Grotesk } from 'next/font/google';
-import { ThemeProvider } from '@/components/ThemeProvider';
-import { useTranslation } from '@/hooks/useTranslation';
-import { useEffect } from 'react';
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -21,14 +19,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { locale } = useTranslation();
-
-  useEffect(() => {
-    document.documentElement.lang = locale;
-  }, [locale]);
-
   return (
-    <html lang={locale} translate="no" className={spaceGrotesk.variable}>
+    <html lang="en" translate="no" className={spaceGrotesk.variable}>
       <head>
         <ColorSchemeScript />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />

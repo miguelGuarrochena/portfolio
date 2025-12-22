@@ -28,8 +28,10 @@ export function HomeContent() {
 
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/cv/miguelGuarrochena_Resume.pdf';
-    link.download = 'Miguel_Guarrochena_Resume.pdf';
+    const isSpanish = locale === 'es';
+    const fileName = isSpanish ? 'CV_MiguelGuarrochena.pdf' : 'miguelGuarrochena_Resume.pdf';
+    link.href = `/cv/${fileName}`;
+    link.download = fileName;
     link.click();
     close();
   };

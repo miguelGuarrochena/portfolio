@@ -49,8 +49,8 @@ export const en = {
     mechanized: {
       company: 'Mechanized',
       role: 'Mid-level Front End Developer',
-      period: 'December 2022 - Present',
-      description: 'Develop and maintain responsive, high-performance web and mobile interfaces using React, Next.js, TypeScript, and modern CSS frameworks. Collaborate with cross-functional teams to deliver scalable features, optimize performance through code splitting and caching, and develop cross-browser compatibility. Contribute to improving development workflows by implementing reusable components, version control best practices, and agile methodologies.',
+      period: 'December 2022 - November 2025',
+      description: 'Developed and maintained responsive, high-performance web and mobile interfaces using React, Next.js, TypeScript, and modern CSS frameworks. Collaborated with cross-functional teams to deliver scalable features, optimize performance through code splitting and caching, and develop cross-browser compatibility. Contributed to improving development workflows by implementing reusable components, version control best practices, and agile methodologies.',
     },
     solehann: {
       company: 'Selehann',

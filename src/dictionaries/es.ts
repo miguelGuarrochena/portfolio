@@ -49,8 +49,8 @@ Con un sólido historial de colaboración en equipos, aporto valor entregando ca
     mechanized: {
       company: 'Mechanized',
       role: 'Desarrollador Front End Mid-level',
-      period: 'Diciembre 2022 - Presente',
-      description: 'Desarrollo y mantengo interfaces web y móviles responsivas y de alto rendimiento utilizando React, Next.js, TypeScript y frameworks CSS modernos. Colaboro con equipos multifuncionales para entregar características escalables, optimizar el rendimiento a través de code splitting y caching, y desarrollar compatibilidad entre navegadores. Contribuyo a mejorar los flujos de trabajo de desarrollo implementando componentes reutilizables, mejores prácticas de control de versiones y metodologías ágiles.',
+      period: 'Diciembre 2022 - Noviembre 2025',
+      description: 'Desarrollo y mantenimiento de interfaces web y móviles responsivas de alto rendimiento utilizando React, Next.js, TypeScript y frameworks CSS modernos. Colaboré con equipos multifuncionales para entregar características escalables, optimizar el rendimiento a través de code splitting y caching, y desarrollar compatibilidad entre navegadores. Contribuí a mejorar los flujos de trabajo de desarrollo implementando componentes reutilizables, mejores prácticas de control de versiones y metodologías ágiles.',
     },
     solehann: {
       company: 'Selehann',

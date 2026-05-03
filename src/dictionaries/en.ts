@@ -23,12 +23,30 @@ export const en = {
     technical: 'Technical Skills',
     soft: 'Soft Skills',
     softSkills: [
-      'Self-directed learning',
-      'Flexibility',
-      'Adaptability',
-      'Teamwork',
-      'Proactive attitude',
-      'Time management'
+      {
+        name: 'Self-directed learning',
+        description: 'Ability to research, master new technologies and continuously improve without relying on external training.',
+      },
+      {
+        name: 'Flexibility',
+        description: 'Adapting to different contexts, teams and shifting priorities without losing focus or quality.',
+      },
+      {
+        name: 'Adaptability',
+        description: 'Quick onboarding into new stacks, processes and team dynamics on any project.',
+      },
+      {
+        name: 'Teamwork',
+        description: 'Smooth collaboration with design, backend and product to deliver consistent solutions.',
+      },
+      {
+        name: 'Proactive attitude',
+        description: 'Anticipating issues, proposing improvements and taking initiative beyond assigned tasks.',
+      },
+      {
+        name: 'Time management',
+        description: 'Organizing tasks, prioritizing by impact and delivering results on time.',
+      },
     ],
   },
   experience: {
@@ -76,13 +94,6 @@ export const en = {
       period: 'August 2019 - January 2020',
       description: 'Worked on IT processes and data management, supporting data-driven decision making.',
     },
-  },
-  education: {
-    title: 'Education',
-    bigData: 'Master\'s in Big Data Applied to Digital Banking and Fintech',
-    fullStack: 'Master\'s in Full-Stack Web Development',
-    mobile: 'Master\'s in Development in Mobile Applications Android/iOS',
-    advertising: 'Bachelor\'s Degree in Advertising',
   },
   contact: {
     title: 'Contact',

@@ -3,19 +3,20 @@
 import { Container, Title, Text, Paper, SimpleGrid, Stack, Group, rem } from '@mantine/core';
 import { motion } from 'framer-motion';
 import { useTranslation } from '@/hooks/useTranslation';
-import { 
-  IconBrandReact, 
-  IconBrandNextjs, 
-  IconBrandJavascript, 
-  IconBrandTypescript, 
-  IconBrandHtml5, 
-  IconBrandCss3, 
+import {
+  IconBrandReact,
+  IconBrandNextjs,
+  IconBrandJavascript,
+  IconBrandTypescript,
+  IconBrandHtml5,
+  IconBrandCss3,
   IconBrandWordpress,
   IconBook,
   IconArrowsShuffle,
   IconRefreshDot,
   IconUsersGroup,
   IconRocket,
+  IconClock,
   IconTools,
   IconUsers,
 } from '@tabler/icons-react';
@@ -24,12 +25,6 @@ interface Skill {
   name: string;
   icon: React.ReactNode;
   color: string;
-}
-
-interface SoftSkill {
-  name: string;
-  icon: React.ReactNode;
-  description: string;
 }
 
 export function SkillsSection() {
@@ -45,32 +40,13 @@ export function SkillsSection() {
     { name: 'WordPress', icon: <IconBrandWordpress size={24} />, color: '#21759B' },
   ];
 
-  const softSkills: SoftSkill[] = [
-    { 
-      name: t.skills.softSkills[0], 
-      icon: <IconBook size={24} />,
-      description: t.skills.softSkills[0] 
-    },
-    { 
-      name: t.skills.softSkills[1], 
-      icon: <IconArrowsShuffle size={24} />,
-      description: t.skills.softSkills[1] 
-    },
-    { 
-      name: t.skills.softSkills[2], 
-      icon: <IconRefreshDot size={24} />,
-      description: t.skills.softSkills[2] 
-    },
-    { 
-      name: t.skills.softSkills[3], 
-      icon: <IconUsersGroup size={24} />,
-      description: t.skills.softSkills[3] 
-    },
-    { 
-      name: t.skills.softSkills[4], 
-      icon: <IconRocket size={24} />,
-      description: t.skills.softSkills[4] 
-    },
+  const softSkillIcons: React.ReactNode[] = [
+    <IconBook size={24} key="book" />,
+    <IconArrowsShuffle size={24} key="flex" />,
+    <IconRefreshDot size={24} key="adapt" />,
+    <IconUsersGroup size={24} key="team" />,
+    <IconRocket size={24} key="proactive" />,
+    <IconClock size={24} key="time" />,
   ];
 
   return (
@@ -137,7 +113,7 @@ export function SkillsSection() {
               </Title>
             </Group>
             <Stack gap="md">
-              {softSkills.map((skill, index) => (
+              {t.skills.softSkills.map((skill, index) => (
                 <motion.div
                   key={skill.name}
                   initial={{ opacity: 0, x: -20 }}
@@ -157,7 +133,7 @@ export function SkillsSection() {
                     }}
                   >
                     <div style={{ color: 'var(--mantine-color-blue-6)' }}>
-                      {skill.icon}
+                      {softSkillIcons[index]}
                     </div>
                     <div>
                       <Text fw={600} mb={4}>

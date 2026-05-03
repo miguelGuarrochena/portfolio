@@ -23,12 +23,30 @@ Con un sólido historial de colaboración en equipos, aporto valor entregando ca
     technical: 'Habilidades Técnicas',
     soft: 'Habilidades Blandas',
     softSkills: [
-      'Aprendizaje autodidacta',
-      'Flexibilidad',
-      'Adaptabilidad',
-      'Trabajo en equipo',
-      'Actitud proactiva',
-      'Gestión del tiempo'
+      {
+        name: 'Aprendizaje autodidacta',
+        description: 'Capacidad para investigar, dominar nuevas tecnologías y mejorar continuamente sin depender de formación externa.',
+      },
+      {
+        name: 'Flexibilidad',
+        description: 'Adaptación a distintos contextos, equipos y prioridades cambiantes sin perder foco ni calidad.',
+      },
+      {
+        name: 'Adaptabilidad',
+        description: 'Rápida incorporación a nuevos stacks, procesos y dinámicas de trabajo en cualquier proyecto.',
+      },
+      {
+        name: 'Trabajo en equipo',
+        description: 'Colaboración fluida con áreas de diseño, backend y producto para entregar soluciones consistentes.',
+      },
+      {
+        name: 'Actitud proactiva',
+        description: 'Anticipación a problemas, propuesta de mejoras y toma de iniciativa más allá de lo asignado.',
+      },
+      {
+        name: 'Gestión del tiempo',
+        description: 'Organización de tareas, priorización por impacto y entrega de resultados dentro de los plazos.',
+      },
     ],
   },
   experience: {
@@ -76,13 +94,6 @@ Con un sólido historial de colaboración en equipos, aporto valor entregando ca
       period: 'Agosto 2019 - Enero 2020',
       description: 'Trabajé en procesos de TI y gestión de datos, apoyando la toma de decisiones basada en datos.',
     },
-  },
-  education: {
-    title: 'Educación',
-    bigData: 'Máster en Big Data Aplicado a la Banca Digital y Fintech',
-    fullStack: 'Máster en Desarrollo Web Full-Stack',
-    mobile: 'Máster en Desarrollo de Aplicaciones Móviles Android/iOS',
-    advertising: 'Licenciatura en Publicidad',
   },
   contact: {
     title: 'Contacto',

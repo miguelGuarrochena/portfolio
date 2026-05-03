@@ -2,7 +2,6 @@
 
 import { AppShell } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { IconDownload, IconMail } from '@tabler/icons-react';
 import { useState } from 'react';
 import { notifications } from '@mantine/notifications';
 import { Header } from './Header';

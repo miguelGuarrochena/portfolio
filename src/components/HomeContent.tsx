@@ -8,6 +8,7 @@ import { Header } from './Header';
 import { HeroSection } from './HeroSection';
 import { AboutSection } from './AboutSection';
 import { SkillsSection } from './SkillsSection';
+import { ProjectsSection } from './ProjectsSection';
 import { ExperienceSection } from './ExperienceSection';
 import { Footer } from './Footer';
 import { useTranslation } from '@/hooks/useTranslation';
@@ -71,6 +72,7 @@ export function HomeContent() {
   const navItems = [
     { id: 'about', label: t.nav.about },
     { id: 'skills', label: t.nav.skills },
+    { id: 'projects', label: t.nav.projects },
     { id: 'experience', label: t.nav.experience },
   ];
 
@@ -95,6 +97,7 @@ export function HomeContent() {
         <HeroSection />
         <AboutSection />
         <SkillsSection />
+        <ProjectsSection />
         <ExperienceSection />
         <Footer />
       </AppShell.Main>

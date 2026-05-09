@@ -11,6 +11,7 @@ import {
   IconBrandHtml5,
   IconBrandCss3,
   IconBrandWordpress,
+  IconBrandWebflow,
   IconBook,
   IconArrowsShuffle,
   IconRefreshDot,
@@ -38,6 +39,7 @@ export function SkillsSection() {
     { name: 'HTML5', icon: <IconBrandHtml5 size={24} />, color: '#E34F26' },
     { name: 'CSS3', icon: <IconBrandCss3 size={24} />, color: '#1572B6' },
     { name: 'WordPress', icon: <IconBrandWordpress size={24} />, color: '#21759B' },
+    { name: 'Webflow', icon: <IconBrandWebflow size={24} />, color: '#4353FF' },
   ];
 
   const softSkillIcons: React.ReactNode[] = [

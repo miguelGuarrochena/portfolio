@@ -144,7 +144,7 @@ Con un sólido historial de colaboración en equipos, aporto valor entregando ca
         youtubeId: '',
         startSeconds: 0,
         url: 'https://www.letspickly.com/',
-        image: '/projects/pickly.png',
+        image: '/projects/pickly.jpg',
       },
       {
         id: 'iseo',
@@ -156,7 +156,7 @@ Con un sólido historial de colaboración en equipos, aporto valor entregando ca
         youtubeId: '',
         startSeconds: 0,
         url: 'https://www.iseo-rh.com/',
-        image: '/projects/iseo.png',
+        image: '/projects/iseo.jpg',
       },
       {
         id: 'meme',
@@ -168,7 +168,7 @@ Con un sólido historial de colaboración en equipos, aporto valor entregando ca
         youtubeId: '',
         startSeconds: 0,
         url: 'https://meme-maker-mg.vercel.app/',
-        image: '/projects/meme.png',
+        image: '/projects/meme.jpg',
       },
       {
         id: 'bellolandia',
@@ -180,7 +180,7 @@ Con un sólido historial de colaboración en equipos, aporto valor entregando ca
         youtubeId: '',
         startSeconds: 0,
         url: 'https://bellolandia.com/',
-        image: '/projects/bellolandia.png',
+        image: '/projects/bellolandia.jpg',
       },
     ],
   },

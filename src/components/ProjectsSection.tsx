@@ -180,6 +180,13 @@ export function ProjectsSection() {
                         </Box>
                       ) : (
                         <Box
+                          component={isVideo ? 'div' : 'a'}
+                          href={isVideo ? undefined : project.url}
+                          target={isVideo ? undefined : '_blank'}
+                          rel={isVideo ? undefined : 'noopener noreferrer'}
+                          onClick={
+                            isVideo ? () => handleOpenVideo(project) : undefined
+                          }
                           style={{
                             background:
                               gradient ||
@@ -189,6 +196,8 @@ export function ProjectsSection() {
                             justifyContent: 'center',
                             width: '100%',
                             height: '100%',
+                            cursor: 'pointer',
+                            textDecoration: 'none',
                           }}
                         >
                           <Text

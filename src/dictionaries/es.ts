@@ -175,7 +175,7 @@ Con un sólido historial de colaboración en equipos, aporto valor entregando ca
         type: 'web',
         context: 'Bellolandia',
         name: 'Bellolandia',
-        description: 'Sitio web del estudio de animación Bellolandia. Showcase de trabajos del estudio (videojuegos, series, animación) con catálogo de proyectos y reel embebido. En migración a Webflow.',
+        description: 'Sitio web del estudio de animación Bellolandia. Showcase de trabajos del estudio (videojuegos, series, animación) con catálogo de proyectos. En migración a Webflow.',
         stack: ['WordPress', 'Elementor'],
         youtubeId: '',
         startSeconds: 0,

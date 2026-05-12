@@ -175,7 +175,7 @@ export const en = {
         type: 'web',
         context: 'Bellolandia',
         name: 'Bellolandia',
-        description: 'Website for the Bellolandia animation studio. Showcase of the studio\'s work (video games, series, animation) with a project catalog and embedded reel. Currently being migrated to Webflow.',
+        description: 'Website for the Bellolandia animation studio. Showcase of the studio\'s work (video games, series, animation) with a project catalog. Currently being migrated to Webflow.',
         stack: ['WordPress', 'Elementor'],
         youtubeId: '',
         startSeconds: 0,

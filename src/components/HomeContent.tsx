@@ -72,8 +72,8 @@ export function HomeContent() {
   const navItems = [
     { id: 'about', label: t.nav.about },
     { id: 'skills', label: t.nav.skills },
-    { id: 'projects', label: t.nav.projects },
     { id: 'experience', label: t.nav.experience },
+    { id: 'projects', label: t.nav.projects },
   ];
 
   return (
@@ -97,8 +97,8 @@ export function HomeContent() {
         <HeroSection />
         <AboutSection />
         <SkillsSection />
-        <ProjectsSection />
         <ExperienceSection />
+        <ProjectsSection />
         <Footer />
       </AppShell.Main>
     </AppShell>

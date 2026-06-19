@@ -1,6 +1,6 @@
 'use client';
 
-import { AppShell } from '@mantine/core';
+import { Box } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { useState } from 'react';
 import { notifications } from '@mantine/notifications';
@@ -11,6 +11,7 @@ import { SkillsSection } from './SkillsSection';
 import { ProjectsSection } from './ProjectsSection';
 import { ExperienceSection } from './ExperienceSection';
 import { Footer } from './Footer';
+import { GrainOverlay } from './GrainOverlay';
 import { useTranslation } from '@/hooks/useTranslation';
 
 export function HomeContent() {
@@ -24,6 +25,11 @@ export function HomeContent() {
       element.scrollIntoView({ behavior: 'smooth' });
       close();
     }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    close();
   };
 
   const handleDownloadCV = () => {
@@ -40,8 +46,8 @@ export function HomeContent() {
     try {
       await navigator.clipboard.writeText('mikeguarrochena@gmail.com');
       notifications.show({
-        title: t.contact.title || 'Contact',
-        message: t.contact.notificationMessage || 'Email copied! Feel free to contact me',
+        title: t.contact.title,
+        message: t.contact.notificationMessage,
         color: 'teal',
         autoClose: 5000,
       });
@@ -77,13 +83,11 @@ export function HomeContent() {
   ];
 
   return (
-    <AppShell
-      header={{ height: 60 }}
-      padding="0"
-    >
-      <Header 
-        opened={opened} 
-        toggle={toggle} 
+    <Box className="page-shell">
+      <GrainOverlay />
+      <Header
+        opened={opened}
+        toggle={toggle}
         close={close}
         onDownloadCV={handleDownloadCV}
         onCopyEmail={handleCopyEmail}
@@ -92,15 +96,16 @@ export function HomeContent() {
         locale={locale}
         navItems={navItems}
         onScrollToSection={scrollToSection}
+        onScrollToTop={scrollToTop}
       />
-      <AppShell.Main>
+      <Box component="main">
         <HeroSection />
         <AboutSection />
         <SkillsSection />
         <ExperienceSection />
         <ProjectsSection />
         <Footer />
-      </AppShell.Main>
-    </AppShell>
+      </Box>
+    </Box>
   );
 }

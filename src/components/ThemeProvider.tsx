@@ -6,18 +6,49 @@ import { useEffect, useState } from 'react';
 import { Notifications } from '@mantine/notifications';
 
 const theme = createTheme({
-  primaryColor: 'blue',
-  fontFamily: 'Inter, sans-serif',
+  primaryColor: 'dark',
+  fontFamily: 'var(--font-space-grotesk), sans-serif',
   headings: {
-    fontFamily: 'Inter, sans-serif',
+    fontFamily: 'var(--font-instrument-serif), Georgia, serif',
+    fontWeight: '400',
+  },
+  defaultRadius: 'md',
+  colors: {
+    dark: [
+      '#f3f0ea',
+      '#d8d2c8',
+      '#bdb5a8',
+      '#a19889',
+      '#857b6c',
+      '#6a6054',
+      '#4f473d',
+      '#342e27',
+      '#1a1712',
+      '#0e0e0d',
+    ],
   },
   components: {
+    Button: {
+      defaultProps: {
+        radius: 'xl',
+      },
+    },
+    Paper: {
+      defaultProps: {
+        radius: 'lg',
+      },
+    },
     Drawer: {
-      styles: (theme: { colorScheme: string; colors: { dark: any[]; }; white: any; }) => ({
+      styles: (theme: { colorScheme: string; colors: { dark: string[] }; white: string }) => ({
         content: {
-          backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
+          backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.white,
         },
       }),
+    },
+    Modal: {
+      defaultProps: {
+        radius: 'lg',
+      },
     },
   },
 });
@@ -28,8 +59,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     setMounted(true);
-    
-    // Add class to body when color scheme changes
+
     if (colorScheme === 'dark') {
       document.body.classList.add('mantine-dark');
       document.body.classList.remove('mantine-light');
@@ -42,19 +72,19 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   if (!mounted) {
     return (
       <MantineProvider theme={theme} defaultColorScheme="light">
-        <Notifications />
+        <Notifications position="top-right" />
         {children}
       </MantineProvider>
     );
   }
 
   return (
-    <MantineProvider 
-      theme={theme} 
+    <MantineProvider
+      theme={theme}
       defaultColorScheme={colorScheme}
       forceColorScheme={colorScheme}
     >
-      <Notifications />
+      <Notifications position="top-right" />
       {children}
     </MantineProvider>
   );

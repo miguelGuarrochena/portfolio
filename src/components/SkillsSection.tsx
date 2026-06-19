@@ -1,8 +1,10 @@
 'use client';
 
-import { Container, Title, Text, Paper, SimpleGrid, Stack, Group, rem } from '@mantine/core';
+import { Container, Title, Text, SimpleGrid, Stack, Group, Box } from '@mantine/core';
 import { motion } from 'framer-motion';
 import { useTranslation } from '@/hooks/useTranslation';
+import { SectionHeader } from './SectionHeader';
+import { DoodleDownArrow } from './Doodle';
 import {
   IconBrandReact,
   IconBrandNextjs,
@@ -12,14 +14,12 @@ import {
   IconBrandCss3,
   IconBrandWordpress,
   IconBrandWebflow,
-  IconBook,
-  IconArrowsShuffle,
-  IconRefreshDot,
-  IconUsersGroup,
-  IconRocket,
-  IconClock,
-  IconTools,
+  IconBulb,
+  IconPuzzle,
   IconUsers,
+  IconRocket,
+  IconPalette,
+  IconClock,
 } from '@tabler/icons-react';
 
 interface Skill {
@@ -32,126 +32,117 @@ export function SkillsSection() {
   const { t } = useTranslation();
 
   const technicalSkills: Skill[] = [
-    { name: 'React', icon: <IconBrandReact size={24} />, color: '#61DAFB' },
-    { name: 'Next.js', icon: <IconBrandNextjs size={24} />, color: '#000000' },
-    { name: 'JavaScript', icon: <IconBrandJavascript size={24} />, color: '#F7DF1E' },
-    { name: 'TypeScript', icon: <IconBrandTypescript size={24} />, color: '#3178C6' },
-    { name: 'HTML5', icon: <IconBrandHtml5 size={24} />, color: '#E34F26' },
-    { name: 'CSS3', icon: <IconBrandCss3 size={24} />, color: '#1572B6' },
-    { name: 'WordPress', icon: <IconBrandWordpress size={24} />, color: '#21759B' },
-    { name: 'Webflow', icon: <IconBrandWebflow size={24} />, color: '#4353FF' },
+    { name: 'React', icon: <IconBrandReact size={22} />, color: '#61DAFB' },
+    { name: 'Next.js', icon: <IconBrandNextjs size={22} />, color: 'var(--text-primary)' },
+    { name: 'JavaScript', icon: <IconBrandJavascript size={22} />, color: '#F7DF1E' },
+    { name: 'TypeScript', icon: <IconBrandTypescript size={22} />, color: '#3178C6' },
+    { name: 'HTML5', icon: <IconBrandHtml5 size={22} />, color: '#E34F26' },
+    { name: 'CSS3', icon: <IconBrandCss3 size={22} />, color: '#1572B6' },
+    { name: 'WordPress', icon: <IconBrandWordpress size={22} />, color: '#21759B' },
+    { name: 'Webflow', icon: <IconBrandWebflow size={22} />, color: '#4353FF' },
   ];
 
   const softSkillIcons: React.ReactNode[] = [
-    <IconBook size={24} key="book" />,
-    <IconArrowsShuffle size={24} key="flex" />,
-    <IconRefreshDot size={24} key="adapt" />,
-    <IconUsersGroup size={24} key="team" />,
-    <IconRocket size={24} key="proactive" />,
-    <IconClock size={24} key="time" />,
+    <IconBulb size={22} key="product" />,
+    <IconPuzzle size={22} key="problem" />,
+    <IconUsers size={22} key="collab" />,
+    <IconRocket size={22} key="autonomy" />,
+    <IconPalette size={22} key="design" />,
+    <IconClock size={22} key="time" />,
   ];
 
   return (
-    <Container size="lg" py={80} id="skills">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        <Title order={2} size="h2" ta="center" mb={50}>
-          {t.skills.title}
-        </Title>
+    <Box className="section-block" id="skills">
+      <Container size="lg">
+        <SectionHeader label={t.skills.label} title={t.skills.title} underline />
 
         <SimpleGrid cols={{ base: 1, md: 2 }} spacing="xl">
-          <Paper p="xl" radius="md" withBorder style={{ height: '100%' }}>
+          <Box className="surface-card" p="xl">
             <Group mb="lg" gap="sm">
-              <IconTools size={28} />
-              <Title order={3} size="h4">
+              <Title order={3} size="h4" fw={600}>
                 {t.skills.technical}
               </Title>
             </Group>
-            <SimpleGrid cols={3} spacing="md">
+            <SimpleGrid cols={{ base: 2, sm: 4 }} spacing="sm">
               {technicalSkills.map((skill, index) => (
                 <motion.div
                   key={skill.name}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ y: -3 }}
+                  transition={{ duration: 0.35, delay: index * 0.04 }}
                   viewport={{ once: true }}
                 >
-                  <Paper
+                  <Box
                     p="md"
-                    radius="md"
-                    withBorder
                     style={{
+                      borderRadius: '1rem',
+                      border: '1px solid var(--border-subtle)',
+                      background: 'var(--surface-base)',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
-                      gap: rem(8),
+                      gap: 8,
                       height: '100%',
-                      cursor: 'default',
-                      transition: 'transform 0.2s, box-shadow 0.2s',
                     }}
                   >
-                    <div style={{ color: skill.color }}>
-                      {skill.icon}
-                    </div>
-                    <Text fw={500} size="sm">
+                    <div style={{ color: skill.color }}>{skill.icon}</div>
+                    <Text fw={500} size="xs" ta="center">
                       {skill.name}
                     </Text>
-                  </Paper>
+                  </Box>
                 </motion.div>
               ))}
             </SimpleGrid>
-          </Paper>
+          </Box>
 
-          <Paper p="xl" radius="md" withBorder>
+          <Box className="surface-card" p="xl">
             <Group mb="lg" gap="sm">
-              <IconUsers size={28} />
-              <Title order={3} size="h4">
+              <Title order={3} size="h4" fw={600}>
                 {t.skills.soft}
               </Title>
             </Group>
-            <Stack gap="md">
+            <Stack gap="sm">
               {t.skills.softSkills.map((skill, index) => (
                 <motion.div
                   key={skill.name}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -12 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  transition={{ duration: 0.35, delay: index * 0.07 }}
                 >
-                  <Paper
+                  <Group
+                    align="flex-start"
+                    gap="md"
                     p="md"
-                    radius="md"
-                    withBorder
                     style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: rem(16),
-                      transition: 'transform 0.2s, box-shadow 0.2s',
+                      borderRadius: '1rem',
+                      border: '1px solid var(--border-subtle)',
+                      background: 'var(--surface-base)',
                     }}
                   >
-                    <div style={{ color: 'var(--mantine-color-blue-6)' }}>
+                    <Box style={{ color: 'var(--accent)', marginTop: 2 }}>
                       {softSkillIcons[index]}
-                    </div>
+                    </Box>
                     <div>
-                      <Text fw={600} mb={4}>
+                      <Text fw={600} mb={4} size="sm">
                         {skill.name}
                       </Text>
-                      <Text size="sm" c="dimmed">
+                      <Text size="sm" c="dimmed" lh={1.55}>
                         {skill.description}
                       </Text>
                     </div>
-                  </Paper>
+                  </Group>
                 </motion.div>
               ))}
             </Stack>
-          </Paper>
+          </Box>
         </SimpleGrid>
-      </motion.div>
-    </Container>
+
+        <Box className="doodle-keepgoing">
+          <DoodleDownArrow delay={0.2} />
+        </Box>
+      </Container>
+    </Box>
   );
 }

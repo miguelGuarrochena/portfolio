@@ -4,7 +4,6 @@ import {
   Container,
   Title,
   Text,
-  Paper,
   SimpleGrid,
   Stack,
   Group,
@@ -20,11 +19,9 @@ import {
 import { useDisclosure } from '@mantine/hooks';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import {
-  IconExternalLink,
-  IconPlayerPlayFilled,
-} from '@tabler/icons-react';
+import { IconExternalLink, IconPlayerPlayFilled } from '@tabler/icons-react';
 import { useTranslation } from '@/hooks/useTranslation';
+import { SectionHeader } from './SectionHeader';
 
 type ProjectItem = {
   id: string;
@@ -79,7 +76,6 @@ export function ProjectsSection() {
 
   const handleCloseModal = () => {
     close();
-    // Wait for the close animation before clearing the iframe so the player stops
     setTimeout(() => setActiveVideo(null), 250);
   };
 
@@ -90,193 +86,180 @@ export function ProjectsSection() {
   const items = t.projects.items as readonly ProjectItem[];
 
   return (
-    <Box py={80} id="projects" style={{ width: '100%' }}>
+    <Box className="section-block" id="projects">
       <Container size="lg">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <Title order={2} size="h2" ta="center" mb="xl">
-            {t.projects.title}
-          </Title>
+        <SectionHeader label={t.projects.label} title={t.projects.title} circle />
 
-          <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="lg">
-            {items.map((project, index) => {
-              const isVideo = project.type === 'video';
-              const rawThumbnail = getThumbnailUrl(project);
-              const thumbnail = imageErrors[project.id] ? null : rawThumbnail;
-              const gradient = FALLBACK_GRADIENTS[project.id];
+        <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="lg">
+          {items.map((project, index) => {
+            const isVideo = project.type === 'video';
+            const rawThumbnail = getThumbnailUrl(project);
+            const thumbnail = imageErrors[project.id] ? null : rawThumbnail;
+            const gradient = FALLBACK_GRADIENTS[project.id];
 
-              return (
-                <motion.div
-                  key={project.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={{ y: -4 }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
-                  viewport={{ once: true }}
-                  style={{ height: '100%' }}
+            return (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.45, delay: index * 0.04 }}
+                viewport={{ once: true }}
+                style={{ height: '100%' }}
+              >
+                <Box
+                  className="surface-card"
+                  style={{
+                    overflow: 'hidden',
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                  }}
                 >
-                  <Paper
-                    radius="md"
-                    withBorder
-                    style={{
-                      overflow: 'hidden',
-                      height: '100%',
-                      display: 'flex',
-                      flexDirection: 'column',
-                    }}
-                  >
-                    <AspectRatio ratio={16 / 9}>
-                      {thumbnail ? (
-                        <Box
-                          component={isVideo ? 'div' : 'a'}
-                          href={isVideo ? undefined : project.url}
-                          target={isVideo ? undefined : '_blank'}
-                          rel={isVideo ? undefined : 'noopener noreferrer'}
-                          onClick={
-                            isVideo ? () => handleOpenVideo(project) : undefined
-                          }
-                          style={{
-                            cursor: 'pointer',
-                            position: 'relative',
-                            width: '100%',
-                            height: '100%',
-                            display: 'block',
-                          }}
-                        >
-                          <Image
-                            src={thumbnail}
-                            alt={project.name}
-                            fit="cover"
-                            w="100%"
-                            h="100%"
-                            onError={() => handleImageError(project.id)}
-                          />
-                          {isVideo && (
-                            <Overlay
-                              color="#000"
-                              backgroundOpacity={0.35}
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                transition: 'background-color 0.2s',
-                              }}
-                            >
-                              <ActionIcon
-                                variant="filled"
-                                color="red"
-                                radius="xl"
-                                size={64}
-                                aria-label={t.projects.viewDemo}
-                              >
-                                <IconPlayerPlayFilled size={28} />
-                              </ActionIcon>
-                            </Overlay>
-                          )}
-                        </Box>
-                      ) : (
-                        <Box
-                          component={isVideo ? 'div' : 'a'}
-                          href={isVideo ? undefined : project.url}
-                          target={isVideo ? undefined : '_blank'}
-                          rel={isVideo ? undefined : 'noopener noreferrer'}
-                          onClick={
-                            isVideo ? () => handleOpenVideo(project) : undefined
-                          }
-                          style={{
-                            background:
-                              gradient ||
-                              'linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            width: '100%',
-                            height: '100%',
-                            cursor: 'pointer',
-                            textDecoration: 'none',
-                          }}
-                        >
-                          <Text
-                            fw={700}
-                            size="xl"
-                            c="white"
-                            ta="center"
-                            px="md"
+                  <AspectRatio ratio={16 / 9}>
+                    {thumbnail ? (
+                      <Box
+                        component={isVideo ? 'div' : 'a'}
+                        href={isVideo ? undefined : project.url}
+                        target={isVideo ? undefined : '_blank'}
+                        rel={isVideo ? undefined : 'noopener noreferrer'}
+                        onClick={isVideo ? () => handleOpenVideo(project) : undefined}
+                        style={{
+                          cursor: 'pointer',
+                          position: 'relative',
+                          width: '100%',
+                          height: '100%',
+                          display: 'block',
+                        }}
+                      >
+                        <Image
+                          src={thumbnail}
+                          alt={project.name}
+                          fit="cover"
+                          w="100%"
+                          h="100%"
+                          onError={() => handleImageError(project.id)}
+                        />
+                        {isVideo && (
+                          <Overlay
+                            color="#000"
+                            backgroundOpacity={0.35}
                             style={{
-                              textShadow: '0 2px 12px rgba(0,0,0,0.25)',
-                              letterSpacing: '0.02em',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
                             }}
                           >
-                            {project.name}
-                          </Text>
-                        </Box>
-                      )}
-                    </AspectRatio>
-
-                    <Stack p="md" gap="xs" style={{ flex: 1 }}>
-                      <Text
-                        size="xs"
-                        c="dimmed"
-                        tt="uppercase"
-                        fw={700}
-                        style={{ letterSpacing: '0.05em' }}
+                            <ActionIcon
+                              variant="filled"
+                              color="dark"
+                              radius="xl"
+                              size={64}
+                              aria-label={t.projects.viewDemo}
+                            >
+                              <IconPlayerPlayFilled size={26} />
+                            </ActionIcon>
+                          </Overlay>
+                        )}
+                      </Box>
+                    ) : (
+                      <Box
+                        component={isVideo ? 'div' : 'a'}
+                        href={isVideo ? undefined : project.url}
+                        target={isVideo ? undefined : '_blank'}
+                        rel={isVideo ? undefined : 'noopener noreferrer'}
+                        onClick={isVideo ? () => handleOpenVideo(project) : undefined}
+                        style={{
+                          background:
+                            gradient ||
+                            'linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          width: '100%',
+                          height: '100%',
+                          cursor: 'pointer',
+                          textDecoration: 'none',
+                        }}
                       >
-                        {project.context}
-                      </Text>
-                      <Title order={3} size="h4">
-                        {project.name}
-                      </Title>
-                      <Text size="sm" c="dimmed" lh={1.5}>
-                        {project.description}
-                      </Text>
-                      <Group gap={6} mt="auto" pt="sm">
-                        {project.stack.map((tech) => (
-                          <Badge
-                            key={tech}
-                            variant="light"
-                            size="sm"
-                            radius="sm"
-                          >
-                            {tech}
-                          </Badge>
-                        ))}
-                      </Group>
-                    </Stack>
+                        <Text
+                          fw={600}
+                          size="lg"
+                          c="white"
+                          ta="center"
+                          px="md"
+                          style={{ letterSpacing: '-0.02em' }}
+                        >
+                          {project.name}
+                        </Text>
+                      </Box>
+                    )}
+                  </AspectRatio>
 
-                    <Box p="md" pt={0}>
-                      {isVideo ? (
-                        <Button
-                          fullWidth
+                  <Stack p="lg" gap="xs" style={{ flex: 1 }}>
+                    <Text
+                      size="xs"
+                      c="dimmed"
+                      tt="uppercase"
+                      fw={600}
+                      style={{ letterSpacing: '0.12em' }}
+                    >
+                      {project.context}
+                    </Text>
+                    <Title order={3} size="h4" fw={600}>
+                      {project.name}
+                    </Title>
+                    <Text size="sm" c="dimmed" lh={1.6}>
+                      {project.description}
+                    </Text>
+                    <Group gap={6} mt="auto" pt="sm">
+                      {project.stack.map((tech) => (
+                        <Badge
+                          key={tech}
                           variant="light"
-                          leftSection={<IconPlayerPlayFilled size={16} />}
-                          onClick={() => handleOpenVideo(project)}
+                          size="sm"
+                          radius="xl"
+                          color="dark"
                         >
-                          {t.projects.viewDemo}
-                        </Button>
-                      ) : (
-                        <Button
-                          fullWidth
-                          variant="light"
-                          rightSection={<IconExternalLink size={16} />}
-                          component="a"
-                          href={project.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {t.projects.viewSite}
-                        </Button>
-                      )}
-                    </Box>
-                  </Paper>
-                </motion.div>
-              );
-            })}
-          </SimpleGrid>
-        </motion.div>
+                          {tech}
+                        </Badge>
+                      ))}
+                    </Group>
+                  </Stack>
+
+                  <Box p="lg" pt={0}>
+                    {isVideo ? (
+                      <Button
+                        fullWidth
+                        variant="light"
+                        color="dark"
+                        radius="xl"
+                        leftSection={<IconPlayerPlayFilled size={16} />}
+                        onClick={() => handleOpenVideo(project)}
+                      >
+                        {t.projects.viewDemo}
+                      </Button>
+                    ) : (
+                      <Button
+                        fullWidth
+                        variant="light"
+                        color="dark"
+                        radius="xl"
+                        rightSection={<IconExternalLink size={16} />}
+                        component="a"
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {t.projects.viewSite}
+                      </Button>
+                    )}
+                  </Box>
+                </Box>
+              </motion.div>
+            );
+          })}
+        </SimpleGrid>
       </Container>
 
       <Modal

@@ -10,48 +10,53 @@ export const es = {
   },
   hero: {
     name: 'Miguel Guarrochena',
-    role: 'Desarrollador Frontend',
-    tagline: 'Construyendo aplicaciones web responsivas y de alto rendimiento con tecnologías modernas',
+    role: 'Desarrollador Frontend & Producto',
+    label: 'Disponible para proyectos',
+    tagline: 'Diseño y construyo productos digitales que resuelven problemas reales — con código limpio, criterio de producto y atención al detalle.',
   },
   about: {
-    title: 'Acerca de Mí',
-    description: `Desarrollador Frontend apasionado por construir aplicaciones web modernas, escalables y de alto rendimiento con React, Next.js, TypeScript y frameworks CSS de vanguardia. Me especializo en crear experiencias de usuario atractivas y responsivas, y en impulsar la optimización del rendimiento a través de mejores prácticas como code splitting, caching y compatibilidad entre navegadores.
+    title: 'Acerca de mí',
+    label: '01 — Perfil',
+    sideLabel: 'Frontend · Producto · Detalle',
+    description: `Combino desarrollo frontend con pensamiento de producto. No me limito a implementar pantallas: entiendo el problema, propongo soluciones y construyo experiencias que tienen sentido para el usuario y el negocio.
 
-Con un sólido historial de colaboración en equipos, aporto valor entregando características que escalan, mejorando la eficiencia del desarrollo a través de bibliotecas de componentes reutilizables, y fomentando flujos de trabajo ágiles y de alta calidad. Mi objetivo es conectar diseño y tecnología, convirtiendo ideas en productos que deleitan a los usuarios y impulsan el crecimiento del negocio.`,
+Trabajo con React, Next.js y TypeScript, pero mi foco va más allá del stack — priorizo claridad, rendimiento y decisiones que escalen. Me gusta colaborar de cerca con diseño y producto, traducir ideas en interfaces cuidadas y encontrar el camino más simple para resolver algo complejo.`,
   },
   skills: {
     title: 'Habilidades',
-    technical: 'Habilidades Técnicas',
-    soft: 'Habilidades Blandas',
+    label: '02 — Capacidades',
+    technical: 'Stack técnico',
+    soft: 'Enfoque de trabajo',
     softSkills: [
       {
-        name: 'Aprendizaje autodidacta',
-        description: 'Capacidad para investigar, dominar nuevas tecnologías y mejorar continuamente sin depender de formación externa.',
+        name: 'Pensamiento de producto',
+        description: 'Entiendo el problema antes de escribir código. Priorizo impacto, no solo entregables.',
       },
       {
-        name: 'Flexibilidad',
-        description: 'Adaptación a distintos contextos, equipos y prioridades cambiantes sin perder foco ni calidad.',
+        name: 'Resolución de problemas',
+        description: 'Descompongo lo complejo, evalúo alternativas y elijo la solución más simple que funcione.',
       },
       {
-        name: 'Adaptabilidad',
-        description: 'Rápida incorporación a nuevos stacks, procesos y dinámicas de trabajo en cualquier proyecto.',
+        name: 'Colaboración',
+        description: 'Trabajo fluido con diseño, backend y stakeholders para alinear visión y ejecución.',
       },
       {
-        name: 'Trabajo en equipo',
-        description: 'Colaboración fluida con áreas de diseño, backend y producto para entregar soluciones consistentes.',
+        name: 'Autonomía',
+        description: 'Investigo, aprendo y avanzo sin depender de instrucciones paso a paso.',
       },
       {
-        name: 'Actitud proactiva',
-        description: 'Anticipación a problemas, propuesta de mejoras y toma de iniciativa más allá de lo asignado.',
+        name: 'Criterio estético',
+        description: 'Cuido tipografía, espaciado y microinteracciones — el detalle importa.',
       },
       {
         name: 'Gestión del tiempo',
-        description: 'Organización de tareas, priorización por impacto y entrega de resultados dentro de los plazos.',
+        description: 'Organizo tareas por impacto y entrego resultados dentro de los plazos acordados.',
       },
     ],
   },
   experience: {
     title: 'Experiencia',
+    label: '03 — Trayectoria',
     present: 'Presente',
     freelance: {
       company: 'Freelance',
@@ -98,6 +103,7 @@ Con un sólido historial de colaboración en equipos, aporto valor entregando ca
   },
   projects: {
     title: 'Proyectos',
+    label: '04 — Trabajo seleccionado',
     viewDemo: 'Ver demo',
     viewSite: 'Ver sitio',
     items: [
@@ -202,6 +208,12 @@ Con un sólido historial de colaboración en equipos, aporto valor entregando ca
     language: 'Idioma',
   },
   footer: {
-    rights: 'Todos los derechos reservados.',
+    rights: '© {year} Miguel Guarrochena',
+    tagline: 'Construyendo productos con intención.',
+  },
+  doodles: {
+    clickPhoto: '¡hacé click!',
+    current: 'mi experiencia',
+    pickOne: 'mirá estos',
   },
 };

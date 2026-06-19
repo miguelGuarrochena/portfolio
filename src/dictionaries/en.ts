@@ -10,48 +10,53 @@ export const en = {
   },
   hero: {
     name: 'Miguel Guarrochena',
-    role: 'Frontend Developer',
-    tagline: 'Crafting responsive, high-performance web applications with cutting-edge technologies to deliver seamless user experiences.',
+    role: 'Frontend & Product Developer',
+    label: 'Available for projects',
+    tagline: 'I design and build digital products that solve real problems — with clean code, product thinking, and attention to detail.',
   },
   about: {
-    title: 'About Me',
-    description: `Frontend Developer passionate about building modern, scalable, and high-performing web applications with React, Next.js, TypeScript, and cutting-edge CSS frameworks. I specialize in creating engaging, responsive user experiences and driving performance optimization through best practices like code splitting, caching, and cross-browser compatibility.
+    title: 'About me',
+    label: '01 — Profile',
+    sideLabel: 'Frontend · Product · Detail',
+    description: `I combine frontend development with product thinking. I don't just implement screens — I understand the problem, propose solutions, and build experiences that make sense for users and the business.
 
-     With a strong track record of collaborating across teams, I bring value by delivering features that scale, improving development efficiency through reusable component libraries, and fostering agile, high-quality workflows. My goal is to bridge design and technology, turning ideas into products that delight users and drive business growth.`,
+I work with React, Next.js, and TypeScript, but my focus goes beyond the stack — I prioritize clarity, performance, and decisions that scale. I enjoy collaborating closely with design and product, translating ideas into polished interfaces, and finding the simplest path to solve something complex.`,
   },
   skills: {
     title: 'Skills',
-    technical: 'Technical Skills',
-    soft: 'Soft Skills',
+    label: '02 — Capabilities',
+    technical: 'Technical stack',
+    soft: 'How I work',
     softSkills: [
       {
-        name: 'Self-directed learning',
-        description: 'Ability to research, master new technologies and continuously improve without relying on external training.',
+        name: 'Product thinking',
+        description: 'I understand the problem before writing code. I prioritize impact, not just deliverables.',
       },
       {
-        name: 'Flexibility',
-        description: 'Adapting to different contexts, teams and shifting priorities without losing focus or quality.',
+        name: 'Problem solving',
+        description: 'I break down complexity, evaluate alternatives, and choose the simplest solution that works.',
       },
       {
-        name: 'Adaptability',
-        description: 'Quick onboarding into new stacks, processes and team dynamics on any project.',
+        name: 'Collaboration',
+        description: 'Smooth work with design, backend, and stakeholders to align vision and execution.',
       },
       {
-        name: 'Teamwork',
-        description: 'Smooth collaboration with design, backend and product to deliver consistent solutions.',
+        name: 'Self-direction',
+        description: 'I research, learn, and move forward without needing step-by-step instructions.',
       },
       {
-        name: 'Proactive attitude',
-        description: 'Anticipating issues, proposing improvements and taking initiative beyond assigned tasks.',
+        name: 'Design sensibility',
+        description: 'I care about typography, spacing, and micro-interactions — details matter.',
       },
       {
         name: 'Time management',
-        description: 'Organizing tasks, prioritizing by impact and delivering results on time.',
+        description: 'I organize tasks by impact and deliver results within agreed timelines.',
       },
     ],
   },
   experience: {
     title: 'Experience',
+    label: '03 — Journey',
     present: 'Present',
     freelance: {
       company: 'Freelance',
@@ -98,6 +103,7 @@ export const en = {
   },
   projects: {
     title: 'Projects',
+    label: '04 — Selected work',
     viewDemo: 'Watch demo',
     viewSite: 'Visit site',
     items: [
@@ -202,6 +208,12 @@ export const en = {
     language: 'Language',
   },
   footer: {
-    rights: 'All rights reserved.',
+    rights: '© {year} Miguel Guarrochena',
+    tagline: 'Building products with intention.',
+  },
+  doodles: {
+    clickPhoto: 'click me!',
+    current: 'my experience',
+    pickOne: 'check these',
   },
 };

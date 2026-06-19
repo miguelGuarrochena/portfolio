@@ -162,7 +162,7 @@ Trabajo con React, Next.js y TypeScript, pero mi foco va más allá del stack �
         youtubeId: '',
         startSeconds: 0,
         url: 'https://www.iseo-rh.com/',
-        image: '/projects/iseo.jpg',
+        image: '/projects/iseo.png',
       },
       {
         id: 'meme',

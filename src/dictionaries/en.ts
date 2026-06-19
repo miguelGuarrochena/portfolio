@@ -162,7 +162,7 @@ I work with React, Next.js, and TypeScript, but my focus goes beyond the stack â
         youtubeId: '',
         startSeconds: 0,
         url: 'https://www.iseo-rh.com/',
-        image: '/projects/iseo.jpg',
+        image: '/projects/iseo.png',
       },
       {
         id: 'meme',

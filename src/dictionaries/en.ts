@@ -209,6 +209,19 @@ I work with React, Next.js, and TypeScript, but my focus goes beyond the stack â
         url: "https://bellolandia.com/",
         image: "/projects/bellolandia.png",
       },
+      {
+        id: "kumo",
+        type: "web",
+        context: "Kumo",
+        name: "Kumo",
+        description:
+          "Personal finance app with expense tracking, budgets, reminders, and shopping lists. WhatsApp notifications and AI-powered receipt scanning (OCR).",
+        stack: ["Next.js", "TypeScript", "Supabase"],
+        youtubeId: "",
+        startSeconds: 0,
+        url: "https://www.kumo-app.com/",
+        image: "/projects/kumo.png",
+      },
     ],
   },
   contact: {

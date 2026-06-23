@@ -212,7 +212,7 @@ I work with React, Next.js, and TypeScript, but my focus goes beyond the stack â
       {
         id: "kumo",
         type: "web",
-        context: "Kumo",
+        context: "Freelance",
         name: "Kumo",
         description:
           "Personal finance app with expense tracking, budgets, reminders, and shopping lists. WhatsApp notifications and AI-powered receipt scanning (OCR).",

@@ -212,7 +212,7 @@ Trabajo con React, Next.js y TypeScript, pero mi foco va más allá del stack �
       {
         id: "kumo",
         type: "web",
-        context: "Kumo",
+        context: "Freelance",
         name: "Kumo",
         description:
           "App de finanzas personales con gastos, presupuestos, recordatorios y lista de compras. Notificaciones por WhatsApp y escaneo de tickets con IA (OCR).",

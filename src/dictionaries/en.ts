@@ -160,7 +160,7 @@ I work with React, Next.js, and TypeScript, but my focus goes beyond the stack â
       {
         id: "pickly",
         type: "web",
-        context: "Freelance",
+        context: "Personal project",
         name: "Pickly",
         description:
           "Platform to create and share polls, rankings, ratings, spin wheels, and 1-vs-1 tournaments. No sign-up required: share the link and votes come in seconds. Available as an installable PWA.",
@@ -212,7 +212,7 @@ I work with React, Next.js, and TypeScript, but my focus goes beyond the stack â
       {
         id: "kumo",
         type: "web",
-        context: "Freelance",
+        context: "Personal project",
         name: "Kumo",
         description:
           "Personal finance app with expense tracking, budgets, reminders, and shopping lists. WhatsApp notifications and AI-powered receipt scanning (OCR).",

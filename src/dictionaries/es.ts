@@ -160,7 +160,7 @@ Trabajo con React, Next.js y TypeScript, pero mi foco va más allá del stack �
       {
         id: "pickly",
         type: "web",
-        context: "Freelance",
+        context: "Proyecto personal",
         name: "Pickly",
         description:
           "Plataforma para crear y compartir encuestas, rankings, ratings, ruletas y torneos 1-vs-1. Sin registro: se comparte el link y se vota en segundos. Disponible como PWA instalable.",
@@ -212,7 +212,7 @@ Trabajo con React, Next.js y TypeScript, pero mi foco va más allá del stack �
       {
         id: "kumo",
         type: "web",
-        context: "Freelance",
+        context: "Proyecto personal",
         name: "Kumo",
         description:
           "App de finanzas personales con gastos, presupuestos, recordatorios y lista de compras. Notificaciones por WhatsApp y escaneo de tickets con IA (OCR).",

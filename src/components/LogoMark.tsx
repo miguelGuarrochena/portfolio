@@ -1,20 +1,21 @@
 interface LogoMarkProps {
   size?: number;
-  variant?: 'mark' | 'wordmark';
+  variant?: "mark" | "wordmark";
   className?: string;
 }
 
 const serif = "var(--font-instrument-serif), Georgia, 'Times New Roman', serif";
 
-export function LogoMark({ size = 48, variant = 'mark', className }: LogoMarkProps) {
-  if (variant === 'wordmark') {
-    const height = size;
-    const width = size * 1.55;
-
+export function LogoMark({
+  size = 48,
+  variant = "mark",
+  className,
+}: LogoMarkProps) {
+  if (variant === "wordmark") {
     return (
       <svg
-        width={width}
-        height={height}
+        width={size * 1.55}
+        height={size}
         viewBox="0 0 62 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -22,37 +23,19 @@ export function LogoMark({ size = 48, variant = 'mark', className }: LogoMarkPro
         aria-hidden={className ? true : undefined}
       >
         <text
-          x="0"
-          y="18"
-          fill="currentColor"
-          opacity="0.42"
+          x="50%"
+          y="50%"
+          dominantBaseline="central"
+          textAnchor="middle"
           fontFamily={serif}
-          fontSize="20"
           fontWeight="400"
-        >
-          {'{'}
-        </text>
-        <text
-          x="11"
-          y="17"
           fill="currentColor"
-          fontFamily={serif}
-          fontSize="13"
-          fontWeight="400"
-          letterSpacing="-0.08em"
         >
-          MG
-        </text>
-        <text
-          x="36"
-          y="18"
-          fill="currentColor"
-          opacity="0.42"
-          fontFamily={serif}
-          fontSize="20"
-          fontWeight="400"
-        >
-          {'}'}
+          <tspan opacity="0.42" fontSize="20">{`{`}</tspan>
+          <tspan fontSize="13" letterSpacing="-0.08em">
+            MG
+          </tspan>
+          <tspan opacity="0.42" fontSize="20" dx="-1">{`}`}</tspan>
         </text>
       </svg>
     );
@@ -79,37 +62,19 @@ export function LogoMark({ size = 48, variant = 'mark', className }: LogoMarkPro
         fill="var(--surface-elevated)"
       />
       <text
-        x="9"
-        y="25"
-        fill="currentColor"
-        opacity="0.42"
+        x="20"
+        y="20"
+        dominantBaseline="central"
+        textAnchor="middle"
         fontFamily={serif}
-        fontSize="15"
         fontWeight="400"
-      >
-        {'{'}
-      </text>
-      <text
-        x="16"
-        y="24"
         fill="currentColor"
-        fontFamily={serif}
-        fontSize="10"
-        fontWeight="400"
-        letterSpacing="-0.08em"
       >
-        MG
-      </text>
-      <text
-        x="28"
-        y="25"
-        fill="currentColor"
-        opacity="0.42"
-        fontFamily={serif}
-        fontSize="15"
-        fontWeight="400"
-      >
-        {'}'}
+        <tspan opacity="0.42" fontSize="15">{`{`}</tspan>
+        <tspan fontSize="10" letterSpacing="-0.08em">
+          MG
+        </tspan>
+        <tspan opacity="0.42" fontSize="15" dx="-1">{`}`}</tspan>
       </text>
     </svg>
   );

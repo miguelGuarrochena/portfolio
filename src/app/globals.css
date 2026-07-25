@@ -16,7 +16,7 @@ html {
   --accent-soft: rgba(42, 61, 53, 0.08);
   --border-subtle: rgba(20, 20, 18, 0.08);
   --border-strong: rgba(20, 20, 18, 0.14);
-  --nav-blur: rgba(246, 243, 237, 0.72);
+  --nav-blur: rgba(246, 243, 237, 0.94);
   --grain-opacity: 0.045;
   --hero-glow: rgba(42, 61, 53, 0.06);
 
@@ -34,7 +34,7 @@ html {
   --accent-soft: rgba(200, 184, 154, 0.1);
   --border-subtle: rgba(243, 240, 234, 0.08);
   --border-strong: rgba(243, 240, 234, 0.14);
-  --nav-blur: rgba(14, 14, 13, 0.78);
+  --nav-blur: rgba(14, 14, 13, 0.94);
   --grain-opacity: 0.06;
   --hero-glow: rgba(200, 184, 154, 0.05);
 

@@ -120,6 +120,8 @@ Trabajo con React, Next.js y TypeScript, pero mi foco va más allá del stack �
     label: "04 — Trabajo seleccionado",
     viewDemo: "Ver demo",
     viewSite: "Ver sitio",
+    prev: "Proyecto anterior",
+    next: "Proyecto siguiente",
     items: [
       {
         id: "mlops",
@@ -171,12 +173,25 @@ Trabajo con React, Next.js y TypeScript, pero mi foco va más allá del stack �
         image: "/projects/pickly.jpg",
       },
       {
+        id: "cicalino",
+        type: "web",
+        context: "Proyecto personal",
+        name: "Cicalino",
+        description:
+          "Avisador de pedidos por QR para negocios gastronómicos. El mostrador crea el pedido, el cliente escanea un QR y recibe un aviso en el celular cuando está listo —sin buzzers y sin instalar apps.",
+        stack: ["Next.js", "React", "TypeScript"],
+        youtubeId: "",
+        startSeconds: 0,
+        url: "https://www.cicalino.net/",
+        image: "/projects/cicalino.png",
+      },
+      {
         id: "iseo",
         type: "web",
         context: "Freelance",
         name: "ISEO RH",
         description:
-          "Sitio institucional de una consultora de Recursos Humanos para PyMEs. Comunica servicios, diagnóstico organizacional y la herramienta online de gestión de personal, con CTAs directos a WhatsApp.",
+          "Sitio institucional de una consultora de Recursos Humanos para PyMEs. Comunica servicios, diagnóstico organizacional y una herramienta online con funciones de RRHH que ayuda a las empresas a gestionar su personal.",
         stack: ["Next.js", "React", "TypeScript"],
         youtubeId: "",
         startSeconds: 0,

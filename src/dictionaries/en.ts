@@ -120,6 +120,8 @@ I work with React, Next.js, and TypeScript, but my focus goes beyond the stack â
     label: "04 â€” Selected work",
     viewDemo: "Watch demo",
     viewSite: "Visit site",
+    prev: "Previous project",
+    next: "Next project",
     items: [
       {
         id: "mlops",
@@ -171,12 +173,25 @@ I work with React, Next.js, and TypeScript, but my focus goes beyond the stack â
         image: "/projects/pickly.jpg",
       },
       {
+        id: "cicalino",
+        type: "web",
+        context: "Personal project",
+        name: "Cicalino",
+        description:
+          "QR-based order-ready notifier for food businesses. The counter creates the order, the customer scans a QR code and gets a notification on their phone when it's ready â€” no buzzers, no app to install.",
+        stack: ["Next.js", "React", "TypeScript"],
+        youtubeId: "",
+        startSeconds: 0,
+        url: "https://www.cicalino.net/",
+        image: "/projects/cicalino.png",
+      },
+      {
         id: "iseo",
         type: "web",
         context: "Freelance",
         name: "ISEO RH",
         description:
-          "Marketing site for an HR consultancy aimed at SMBs. Communicates services, organizational diagnostics, and their online staff management tool, with direct WhatsApp CTAs.",
+          "Marketing site for an HR consultancy aimed at SMBs. Communicates services, organizational diagnostics, and an online tool with HR features that helps companies manage their staff.",
         stack: ["Next.js", "React", "TypeScript"],
         youtubeId: "",
         startSeconds: 0,

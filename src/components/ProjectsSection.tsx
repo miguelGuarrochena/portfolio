@@ -14,7 +14,6 @@ import {
   Button,
   Box,
   Overlay,
-  ActionIcon,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { motion } from 'framer-motion';
@@ -44,6 +43,7 @@ type ActiveVideo = {
 
 const FALLBACK_GRADIENTS: Record<string, string> = {
   pickly: 'linear-gradient(135deg, #FF4D6A 0%, #FF8E53 100%)',
+  cicalino: 'linear-gradient(135deg, #10142f 0%, #2B3A67 100%)',
   iseo: 'linear-gradient(135deg, #1F4068 0%, #162447 100%)',
   meme: 'linear-gradient(135deg, #6366F1 0%, #EC4899 100%)',
   bellolandia: 'linear-gradient(135deg, #F59E0B 0%, #EF4444 100%)',
@@ -65,6 +65,8 @@ export function ProjectsSection() {
   const [activeVideo, setActiveVideo] = useState<ActiveVideo>(null);
   const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
 
+  const items = t.projects.items as readonly ProjectItem[];
+
   const handleOpenVideo = (project: ProjectItem) => {
     setActiveVideo({
       youtubeId: project.youtubeId,
@@ -83,8 +85,6 @@ export function ProjectsSection() {
     setImageErrors((prev) => (prev[id] ? prev : { ...prev, [id]: true }));
   };
 
-  const items = t.projects.items as readonly ProjectItem[];
-
   return (
     <Box className="section-block" id="projects">
       <Container size="lg">
@@ -98,24 +98,19 @@ export function ProjectsSection() {
             const gradient = FALLBACK_GRADIENTS[project.id];
 
             return (
-              <motion.div
+              <motion.article
                 key={project.id}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -6 }}
-                transition={{ duration: 0.45, delay: index * 0.04 }}
-                viewport={{ once: true }}
+                transition={{
+                  duration: 0.5,
+                  delay: Math.min(index, 5) * 0.05,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                viewport={{ once: true, margin: '0px 0px -10% 0px' }}
                 style={{ height: '100%' }}
               >
-                <Box
-                  className="surface-card"
-                  style={{
-                    overflow: 'hidden',
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                  }}
-                >
+                <Box className="surface-card project-card">
                   <AspectRatio ratio={16 / 9}>
                     {thumbnail ? (
                       <Box
@@ -124,13 +119,8 @@ export function ProjectsSection() {
                         target={isVideo ? undefined : '_blank'}
                         rel={isVideo ? undefined : 'noopener noreferrer'}
                         onClick={isVideo ? () => handleOpenVideo(project) : undefined}
-                        style={{
-                          cursor: 'pointer',
-                          position: 'relative',
-                          width: '100%',
-                          height: '100%',
-                          display: 'block',
-                        }}
+                        className="project-media"
+                        aria-label={isVideo ? t.projects.viewDemo : t.projects.viewSite}
                       >
                         <Image
                           src={thumbnail}
@@ -138,27 +128,18 @@ export function ProjectsSection() {
                           fit="cover"
                           w="100%"
                           h="100%"
+                          className="project-media-img"
                           onError={() => handleImageError(project.id)}
                         />
                         {isVideo && (
                           <Overlay
                             color="#000"
-                            backgroundOpacity={0.35}
-                            style={{
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                            }}
+                            backgroundOpacity={0.32}
+                            className="project-media-overlay"
                           >
-                            <ActionIcon
-                              variant="filled"
-                              color="dark"
-                              radius="xl"
-                              size={64}
-                              aria-label={t.projects.viewDemo}
-                            >
-                              <IconPlayerPlayFilled size={26} />
-                            </ActionIcon>
+                            <span className="project-play">
+                              <IconPlayerPlayFilled size={24} />
+                            </span>
                           </Overlay>
                         )}
                       </Box>
@@ -169,18 +150,13 @@ export function ProjectsSection() {
                         target={isVideo ? undefined : '_blank'}
                         rel={isVideo ? undefined : 'noopener noreferrer'}
                         onClick={isVideo ? () => handleOpenVideo(project) : undefined}
+                        className="project-media project-media--fallback"
                         style={{
                           background:
                             gradient ||
                             'linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%)',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          width: '100%',
-                          height: '100%',
-                          cursor: 'pointer',
-                          textDecoration: 'none',
                         }}
+                        aria-label={isVideo ? t.projects.viewDemo : t.projects.viewSite}
                       >
                         <Text
                           fw={600}
@@ -192,6 +168,11 @@ export function ProjectsSection() {
                         >
                           {project.name}
                         </Text>
+                        {isVideo && (
+                          <span className="project-play project-play--onfallback">
+                            <IconPlayerPlayFilled size={24} />
+                          </span>
+                        )}
                       </Box>
                     )}
                   </AspectRatio>
@@ -256,7 +237,7 @@ export function ProjectsSection() {
                     )}
                   </Box>
                 </Box>
-              </motion.div>
+              </motion.article>
             );
           })}
         </SimpleGrid>
@@ -273,7 +254,7 @@ export function ProjectsSection() {
         {activeVideo && (
           <AspectRatio ratio={16 / 9}>
             <iframe
-              src={`https://www.youtube.com/embed/${activeVideo.youtubeId}?start=${activeVideo.startSeconds}&autoplay=1&rel=0`}
+              src={`https://www.youtube-nocookie.com/embed/${activeVideo.youtubeId}?start=${activeVideo.startSeconds}&autoplay=1&rel=0`}
               title={activeVideo.name}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen

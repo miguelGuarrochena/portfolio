@@ -512,8 +512,137 @@ a {
   }
 }
 
+/* ============================================================ */
+/* Cards de proyectos                                           */
+/* ============================================================ */
+.project-card {
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-media {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.project-media--fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-media-img {
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-card:hover .project-media-img {
+  transform: scale(1.06);
+}
+
+.project-media-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.project-play {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  color: #141412;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-play--onfallback {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.project-card:hover .project-play {
+  transform: scale(1.09);
+}
+
+.project-card:hover .project-play--onfallback {
+  transform: translate(-50%, -50%) scale(1.09);
+}
+
+/* ============================================================ */
+/* Hero: presencia visual reforzada                             */
+/* ============================================================ */
+.hero-badge,
+.hero-main,
+.hero-scroll--mobile {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  top: -8rem;
+  right: -6rem;
+  width: 38rem;
+  height: 38rem;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle, var(--hero-glow), transparent 62%);
+  animation: hero-float 16s ease-in-out infinite;
+}
+
+@keyframes hero-float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-2.5rem, 1.75rem) scale(1.1);
+  }
+}
+
+.hero-photo-frame {
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* Foco visible coherente para accesibilidad */
+a:focus-visible,
+button:focus-visible,
+[role='button']:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .doodle path {
     transition: none !important;
+  }
+
+  .hero-section::after {
+    animation: none;
+  }
+
+  .project-card:hover .project-media-img,
+  .project-card:hover .project-play {
+    transform: none;
   }
 }

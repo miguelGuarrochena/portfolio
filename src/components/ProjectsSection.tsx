@@ -135,6 +135,7 @@ export function ProjectsSection() {
                           <Overlay
                             color="#000"
                             backgroundOpacity={0.32}
+                            zIndex={1}
                             className="project-media-overlay"
                           >
                             <span className="project-play">
